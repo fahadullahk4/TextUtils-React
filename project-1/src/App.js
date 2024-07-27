@@ -61,15 +61,17 @@ function App() {
 
 				<Alert alert={alert} />
 				<div className="container my-3">
-					<Routes>  {/*instead of switch*/}
-						<Route exact path="/about" element={<About />} />
+					<Routes>
+						{" "}
+						{/*instead of switch*/}
+						<Route exact path="/about" element={<About mode={mode} />} />
 						<Route
 							exact
 							path="/"
 							element={
 								<TextForm
 									displayAlert={displayAlert}
-									heading="Enter the text below to analyze."
+									heading="Try free TextUtils. Word counter, Character counter, Change Case, Remove extra spaces."
 									mode={mode}
 									redMode={redMode}
 								/>
