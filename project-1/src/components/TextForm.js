@@ -13,9 +13,8 @@ export default function TextForm(props) {
 	};
 
 	const handleCopyText = () => {
-		let text = document.querySelector("#textBox");
-		text.select();
-		navigator.clipboard.writeText(text.value);
+		navigator.clipboard.writeText(text);
+		document.getSelection().removeAllRanges();
 		props.displayAlert("Text copied to clipboard", "success");
 	};
 
@@ -35,7 +34,7 @@ export default function TextForm(props) {
 	};
 
 	const countWords = (text) => {
-		return text.split(" ").filter((word) => {
+		return text.split(/\s+/).filter((word) => {
 			return word.length !== 0;
 		}).length;
 	};

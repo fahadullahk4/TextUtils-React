@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
 	const [mode, setMode] = useState("light");
-	const [redMode, setRedMode] = useState("light");
 
 	const [alert, setAlert] = useState(null);
 
@@ -35,18 +34,6 @@ function App() {
 		}
 	};
 
-	const toggleRedMode = () => {
-		if (mode === "light") {
-			setRedMode("red");
-			document.body.style.backgroundColor = "pink";
-			displayAlert("Red Mode Enabled", "success");
-		} else {
-			setRedMode("light");
-			document.body.style.backgroundColor = "pink";
-			displayAlert("Red Mode Disabled", "success");
-		}
-	};
-
 	return (
 		<>
 			<Router>
@@ -54,9 +41,7 @@ function App() {
 					title="TextUtils"
 					about="About"
 					mode={mode}
-					redMode={redMode}
 					toggleMode={toggleMode}
-					toggleRedMode={toggleRedMode}
 				/>
 
 				<Alert alert={alert} />
@@ -73,7 +58,6 @@ function App() {
 									displayAlert={displayAlert}
 									heading="Try free TextUtils. Word counter, Character counter, Change Case, Remove extra spaces."
 									mode={mode}
-									redMode={redMode}
 								/>
 							}
 						/>
